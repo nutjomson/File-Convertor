@@ -198,17 +198,23 @@
             touch-action: manipulation;
         }
 
-        /* Tabs become a swipeable strip instead of tiny wrapped buttons */
+        /* Tabs wrap onto additional lines; never require horizontal swiping */
         .tabs {
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: visible;
             gap: 6px;
             padding-bottom: 8px;
+            min-width: 0;
         }
-        .tab-btn { flex: 0 0 auto; white-space: nowrap; }
+        .tab-btn {
+            flex: 1 1 auto;
+            min-width: 0;
+            max-width: 100%;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            line-height: 1.35;
+        }
 
         .option-group { min-width: 0; }
         .option-group select,
@@ -301,7 +307,7 @@
             .paint-toolbar button { min-height: 40px; padding: 8px 9px; }
             .paint-divider { display: none; }
             .canvas-wrapper { max-height: 65vh; }
-            .canvas-wrapper canvas { max-width: none; }
+            .canvas-wrapper canvas { max-width: 100%; height: auto; }
             .snippet-panel { padding: 10px; }
             .snippet-panel-header { align-items: stretch; }
             .snippet-panel-header > span { flex: 1 1 100%; }
@@ -311,6 +317,35 @@
             .status { overflow-wrap: anywhere; line-height: 1.5; }
             .page-container { padding: 10px; }
             .page-container h3 { font-size: 16px; }
+        }
+
+        /* ================= No horizontal page scrolling ================= */
+        html, body {
+            max-width: 100%;
+            overflow-x: clip;
+        }
+        body, main, section, article, div, form, fieldset {
+            min-width: 0;
+        }
+        img, video, iframe, table, pre, code {
+            max-width: 100%;
+        }
+        p, h1, h2, h3, label, small, strong, span, a {
+            overflow-wrap: anywhere;
+        }
+        .tab-content, .page-container, .snippet-panel, .split-card,
+        .crop-workspace, .paint-toolbar, .box {
+            min-width: 0;
+            max-width: 100%;
+        }
+        .canvas-wrapper {
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .canvas-wrapper canvas {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
 
         /* iOS Safari: prevent automatic zoom when focusing small form controls */
