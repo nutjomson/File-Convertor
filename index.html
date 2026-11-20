@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com; style-src 'unsafe-inline' https://cdnjs.cloudflare.com; img-src data: blob:; font-src data: blob:; connect-src https://cdn.jsdelivr.net https://tessdata.projectnaptha.com https://cdnjs.cloudflare.com data: blob:; worker-src blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
     <title>โปรแกรมจัดการไฟล์ PDF & รูปภาพ แบบครบวงจร (Pro Ultimate Edition)</title>
 
     <!-- ไลบรารีหลัก -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js" integrity="sha384-uLiAv4VcjM5H2Jsqzl8EajEaxPugj1CIzQaCjQ8c5//vC+elhxO5pZfXGxoLQi1W" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js" integrity="sha384-weMABwrltA6jWR8DDe9Jp5blk+tZQh7ugpCsF3JwSA53WZM9/14PjS5LAJNHNjAI" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jspdf@4.2.1/dist/jspdf.umd.min.js" integrity="sha384-qovJwSBbRDPP5cEjCp8S0UP66wrvnjaa60XMOGzTNanrThcrGfXfnZkvgY8N1KT3" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha384-PlRSzpewlarQuj5alIadXwjNUX+2eNMKwr0f07ShWYLy8B6TjEbm7ZlcN/ScSbwy" crossorigin="anonymous"></script>
+    <script src="./vendor/pdfjs/pdf.min.js" integrity="sha384-uLiAv4VcjM5H2Jsqzl8EajEaxPugj1CIzQaCjQ8c5//vC+elhxO5pZfXGxoLQi1W" crossorigin="anonymous"></script>
+    <script src="./vendor/pdf-lib/pdf-lib.min.js" integrity="sha384-weMABwrltA6jWR8DDe9Jp5blk+tZQh7ugpCsF3JwSA53WZM9/14PjS5LAJNHNjAI" crossorigin="anonymous"></script>
+    <script src="./vendor/jspdf/jspdf.umd.min.js" integrity="sha384-qovJwSBbRDPP5cEjCp8S0UP66wrvnjaa60XMOGzTNanrThcrGfXfnZkvgY8N1KT3" crossorigin="anonymous"></script>
+    <script src="./vendor/jszip/jszip.min.js" integrity="sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG" crossorigin="anonymous"></script>
+    <script src="./vendor/file-saver/FileSaver.min.js" integrity="sha384-PlRSzpewlarQuj5alIadXwjNUX+2eNMKwr0f07ShWYLy8B6TjEbm7ZlcN/ScSbwy" crossorigin="anonymous"></script>
     
     <!-- Cropper.js CSS & JS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" integrity="sha384-oMy41mb/qJnpJlpXOF57hSu2KGi47l/UV9+tPNrBOs7/ap5Vubj/3phrCtjutHMQ" crossorigin="anonymous"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" integrity="sha384-r+ljwOAhwY4/kdyzMnuBg7MEVoWpTMp5EYUDntB/E9qzNwL9dAEcNrb2XaV+mJc2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./vendor/cropperjs/cropper.min.css" integrity="sha384-oMy41mb/qJnpJlpXOF57hSu2KGi47l/UV9+tPNrBOs7/ap5Vubj/3phrCtjutHMQ" crossorigin="anonymous"/>
+    <script src="./vendor/cropperjs/cropper.min.js" integrity="sha384-r+ljwOAhwY4/kdyzMnuBg7MEVoWpTMp5EYUDntB/E9qzNwL9dAEcNrb2XaV+mJc2" crossorigin="anonymous"></script>
 
     <!-- SortableJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js" integrity="sha384-eeLEhtwdMwD3X9y+8P3Cn7Idl/M+w8H4uZqkgD/2eJVkWIN1yKzEj6XegJ9dL3q0" crossorigin="anonymous"></script>
+    <script src="./vendor/sortablejs/Sortable.min.js" integrity="sha384-eeLEhtwdMwD3X9y+8P3Cn7Idl/M+w8H4uZqkgD/2eJVkWIN1yKzEj6XegJ9dL3q0" crossorigin="anonymous"></script>
 
     <!-- Tesseract.js (OCR สำหรับถอดข้อความภาษาไทย/อังกฤษ) -->
-    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js" integrity="sha384-GJqSu7vueQ9qN0E9yLPb3Wtpd7OrgK8KmYzC8T1IysG1bcvxvIO4qtYR/D3A991F" crossorigin="anonymous"></script>
+    <script src="./vendor/tesseract/tesseract.min.js" integrity="sha384-GJqSu7vueQ9qN0E9yLPb3Wtpd7OrgK8KmYzC8T1IysG1bcvxvIO4qtYR/D3A991F" crossorigin="anonymous"></script>
 
     <style>
         :root {
@@ -733,7 +733,16 @@ function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+function createLocalOcrWorker(lang) {
+    return Tesseract.createWorker(lang, 1, {
+        workerPath: './vendor/tesseract/worker.min.js',
+        corePath: './vendor/tesseract-core/tesseract-core-simd-lstm.wasm.js',
+        langPath: './vendor/tesseract/lang-data',
+        gzip: true
+    });
+}
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = './vendor/pdfjs/pdf.worker.min.js';
 
         let createdObjectURLs = [];
 
@@ -1886,7 +1895,7 @@ function escapeHtml(s) {
                 } else {
                     status.innerText = 'ไม่พบ Text Layer - กำลังใช้ OCR วิเคราะห์ข้อความจากภาพ...';
                     const canvas = document.getElementById('editor-canvas');
-                    const worker = await Tesseract.createWorker('tha+eng');
+                    const worker = await createLocalOcrWorker('tha+eng');
                     const ocrRes = await worker.recognize(canvas);
                     await worker.terminate();
 
@@ -2110,7 +2119,7 @@ function escapeHtml(s) {
                         if (pageText.length < 10) {
                             status.innerText = `หน้า ${p} เป็น PDF สแกน - กำลังใช้ OCR อ่านภาษา...`;
                             if (!worker) {
-                                worker = await Tesseract.createWorker(lang);
+                                worker = await createLocalOcrWorker(lang);
                             }
                             const viewport = page.getViewport({ scale: 2.0 });
                             const canvas = document.createElement('canvas');
@@ -2136,7 +2145,7 @@ function escapeHtml(s) {
                     status.innerText = 'ถอดข้อความจาก PDF สำเร็จ!';
                 } else if (file.type.startsWith('image/')) {
                     showProgress(30, 'กำลังเริ่มกระบวนการ OCR บนรูปภาพ...');
-                    const worker = await Tesseract.createWorker(lang);
+                    const worker = await createLocalOcrWorker(lang);
                     showProgress(60, 'กำลังวิเคราะห์และถอดข้อความ...');
                     const ocrRes = await worker.recognize(file);
                     await worker.terminate();
