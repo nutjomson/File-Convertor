@@ -43,15 +43,19 @@ jobs:
           curl --fail --location --retry 3 https://tessdata.projectnaptha.com/4.0.0/eng.traineddata.gz -o vendor/tesseract/lang-data/eng.traineddata.gz
           test -s vendor/tesseract-core/tesseract-core-simd-lstm.wasm.js
           test -s vendor/tesseract-core/tesseract-core-simd-lstm.wasm
-      - name: Copy upstream license texts
+      - name: Verify committed license texts
         run: |
           set -euo pipefail
-          mkdir -p THIRD_PARTY_LICENSES
-          for pkg in pdfjs-dist pdf-lib jspdf jszip file-saver cropperjs sortablejs tesseract.js tesseract.js-core; do
-            mkdir -p "THIRD_PARTY_LICENSES/$pkg"
-            cp "node_modules/$pkg/LICENSE" "THIRD_PARTY_LICENSES/$pkg/LICENSE" 2>/dev/null || true
-            cp "node_modules/$pkg/NOTICE" "THIRD_PARTY_LICENSES/$pkg/NOTICE" 2>/dev/null || true
-          done
+          test -s THIRD_PARTY_LICENSES/pdfjs-dist/LICENSE
+          test -s THIRD_PARTY_LICENSES/pdf-lib/LICENSE.md
+          test -s THIRD_PARTY_LICENSES/jspdf/LICENSE
+          test -s THIRD_PARTY_LICENSES/jszip/LICENSE.markdown
+          test -s THIRD_PARTY_LICENSES/file-saver/LICENSE.md
+          test -s THIRD_PARTY_LICENSES/cropperjs/LICENSE
+          test -s THIRD_PARTY_LICENSES/sortablejs/LICENSE
+          test -s THIRD_PARTY_LICENSES/tesseract.js/LICENSE
+          test -s THIRD_PARTY_LICENSES/tesseract.js-core/LICENSE
+          test -s THIRD_PARTY_LICENSES/tessdata/LICENSE
       - name: Commit vendored assets
         run: |
           git config user.name "github-actions[bot]"
